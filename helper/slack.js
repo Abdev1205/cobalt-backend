@@ -15,7 +15,7 @@ const app = new slack.App({
 const sendMessage = async (req, res) => {
   try {
     const { text } = req.body;
-    console.log("message", text)
+    // console.log("message", text)
 
     const result = await app.client.chat.postMessage({
       token: process.env.SLACK_BOT_TOKEN,
@@ -38,7 +38,6 @@ const sendMessage = async (req, res) => {
 
     const mess = await newMessage.save();
 
-    console.log(result);
     return res.status(201).json({ success: true, message: mess });
 
   } catch (error) {
@@ -56,7 +55,6 @@ const getMessage = async (req, res) => {
     });
 
     let conversationHistory = result.messages;
-    console.log(conversationHistory)
     return res.status(201).json({ success: true, message: conversationHistory });
   }
   catch (error) {
