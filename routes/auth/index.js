@@ -18,7 +18,7 @@ router.get('/google/callback', passport.authenticate('google', { failureRedirect
   res.cookie('accessToken', token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
-    sameSite: 'Strict',
+    sameSite: 'None',
   });
   res.redirect(`${process.env.FRONTEND_URL}/`);
 });

@@ -6,7 +6,7 @@ const logout = async (req, res, next) => {
       .cookie('accessToken', false, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production', // Ensures secure cookies in production
-        sameSite: 'Strict',
+        sameSite: 'None',
       })
       // .clearCookie('jwt')
 
